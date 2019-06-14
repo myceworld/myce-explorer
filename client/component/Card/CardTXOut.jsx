@@ -31,18 +31,21 @@ export default class CardTXOut extends Component {
 
   render() {
     return (
+
       <Table
         cols={ this.state.cols }
         data={ this.props.txs.map(tx => ({
           ...tx,
           address: (
-            <Link to={ `/address/${ tx.address }` }>{ tx.address }</Link>
+<Link to={ `/address/${ tx.address }` }>{ tx.address }</Link>
           ),
-          value: (
+          value:(
             <span className="badge badge-success">
               { numeral(tx.value).format(config.coinDetails.coinNumberFormat) } {config.coinDetails.shortName}
+
             </span>
-          )
+          ),
+
         })) } />
     );
   };

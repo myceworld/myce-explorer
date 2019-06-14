@@ -55,6 +55,7 @@ module.exports = {
     contentBase: path.resolve('public'),
     hot: true,
     port: 8081,
+host:'0.0.0.0',	
     publicPath: '/'
   },
   devtool: 'source-map',

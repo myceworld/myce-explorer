@@ -31,7 +31,7 @@ async function update() {
   let code = 0;
 
   try {
-    locker.lock('block');
+   locker.lock('block');
     locker.lock('coin');
     locker.lock('masternode');
     locker.lock('peer');

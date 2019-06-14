@@ -181,8 +181,10 @@ async function addPoS(block, rpctx) {
       const stakedTxVoutIndex = rpctx.vin[0].vout;
 
       // Find details of the staked input
+console.log('stakeInputTxId ==> '+stakeInputTxId);
       const stakedInputRawTx = await getTX(stakeInputTxId, true); // true for verbose output so we can get time & confirmations
-
+console.log('stakedInputRawTx ==> '+JSON.stringify(stakedInputRawTx));
+console.log('stakedTxVoutIndexstakedTxVoutIndex ==> '+stakedTxVoutIndex);
       const stakedInputRawTxVout = stakedInputRawTx.vout[stakedTxVoutIndex];
 
       const stakeInputValue = stakedInputRawTxVout.value;

@@ -15,8 +15,8 @@ const Coin = require('../model/coin');
 async function syncCoin() {
   const date = moment().utc().startOf('minute').toDate();
   // Setup the coinmarketcap.com api url.
-  const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
-
+  //const url = `${ config.coinMarketCap.api }${ config.coinMarketCap.ticker }`;
+  const url='https://api.coinpaprika.com/v1/coins/yce-myce/markets?quotes=USD,BTC'
   const info = await rpc.call('getinfo');
   const masternodes = await rpc.call('getmasternodecount');
   const nethashps = await rpc.call('getnetworkhashps');
@@ -27,18 +27,18 @@ async function syncCoin() {
   }
 
   const coin = new Coin({
-    cap: market.market_cap_usd,
+    cap: info.moneysupply*market.quotes.USD.price,
     createdAt: date,
     blocks: info.blocks,
-    btc: market.price_btc,
+    btc: market.quotes.BTC.price,
     diff: info.difficulty,
     mnsOff: masternodes.total - masternodes.stable,
     mnsOn: masternodes.stable,
     netHash: nethashps,
     peers: info.connections,
     status: 'Online',
-    supply: market.available_supply, // TODO: change to actual count from db.
-    usd: market.price_usd
+    supply: info.moneysupply, // TODO: change to actual count from db.
+    usd: market.quotes.USD.price
   });
 
   await coin.save();

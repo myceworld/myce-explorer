@@ -28,6 +28,7 @@ else {
   const db = require('../lib/db');
   const express = require('express');
   const mongoose = require('mongoose');
+var cors = require('cors');
   // Application.
   const middleware = require('./lib/middleware');
   const router = require('./lib/router');
@@ -39,6 +40,20 @@ else {
   /* API */
   // Setup the application.
   const app = express();
+app.use(cors());
+var allowCrossDomain = function(req, res, next) {
+    if ('OPTIONS' == req.method) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
+
+app.use(allowCrossDomain);
   // Setup middleware for app.
   middleware(app);
   // Setup the routes.

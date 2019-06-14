@@ -30,30 +30,7 @@ const CardROI = ({ coin, supply }) => {
           Estimated ROI
         </div>
       </div>
-      <div className="mb-3">
-        <div className="h3">
-          { numeral(supply ? supply.t : 0.0).format('0,0.0000') } BWK
-        </div>
-        <div className="h5">
-          Coin Supply (Total)
-        </div>
-      </div>
-      <div className="mb-3">
-        <div className="h3">
-          { numeral(supply ? supply.c - (mns * mncoins) : 0.0).format('0,0.0000') } BWK
-        </div>
-        <div className="h5">
-          Coin Supply (Circulating)
-        </div>
-      </div>
-      <div className="mb-3">
-        <div className="h3">
-          { numeral(coin.cap * coin.btc).format('0,0.0000') } BTC
-        </div>
-        <div className="h5">
-          Market Cap BTC
-        </div>
-      </div>
+     
       <div className="mb-3">
         <div className="h3">
           { numeral(coin.cap).format('$0,0.00') }
@@ -64,7 +41,7 @@ const CardROI = ({ coin, supply }) => {
       </div>
       <div className="mb-3">
         <div className="h3">
-          { numeral(mns * mncoins).format('0,0.0000') } BWK
+          { numeral(mns * mncoins).format('0,0.0000') } YCE
         </div>
         <div className="h5">
           Coins Locked
