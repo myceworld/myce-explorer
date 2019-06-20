@@ -25,12 +25,12 @@ async function syncCoin() {
   if (Array.isArray(market)) {
     market = market.length ? market[0] : {};
   }
-
+console.log(JSON.stringify(market) +'market');
   const coin = new Coin({
-    cap: info.moneysupply*market.quotes.USD.price,
+    cap: info.moneysupply* (market.quotes ? market.quotes.USD.price : 0),
     createdAt: date,
     blocks: info.blocks,
-    btc: market.quotes.BTC.price,
+    btc: (market.quotes ? market.quotes.BTC.price : 0),
     diff: info.difficulty,
     mnsOff: masternodes.total - masternodes.stable,
     mnsOn: masternodes.stable,
@@ -38,7 +38,7 @@ async function syncCoin() {
     peers: info.connections,
     status: 'Online',
     supply: info.moneysupply, // TODO: change to actual count from db.
-    usd: market.quotes.USD.price
+    usd: (market.quotes ? market.quotes.USD.price :0)
   });
 
   await coin.save();

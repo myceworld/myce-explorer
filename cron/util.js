@@ -181,12 +181,8 @@ async function addPoS(block, rpctx) {
       const stakedTxVoutIndex = rpctx.vin[0].vout;
 
       // Find details of the staked input
-console.log('stakeInputTxId ==> '+stakeInputTxId);
       const stakedInputRawTx = await getTX(stakeInputTxId, true); // true for verbose output so we can get time & confirmations
-console.log('stakedInputRawTx ==> '+JSON.stringify(stakedInputRawTx));
-console.log('stakedTxVoutIndexstakedTxVoutIndex ==> '+stakedTxVoutIndex);
       const stakedInputRawTxVout = stakedInputRawTx.vout[stakedTxVoutIndex];
-
       const stakeInputValue = stakedInputRawTxVout.value;
       const stakedInputConfirmations = stakedInputRawTx.confirmations - rpctx.confirmations; // How many confirmations did we get on staked input before the stake occured (subtract the new tx confirmations)
       const stakedInputTime = stakedInputRawTx.time;

@@ -27,9 +27,8 @@ class Footer extends Component {
         <div className="footer__block">
           <img className="footer__logo" src="/img/footerlogo.svg" />
           <span className="footer__legal">
-           
-           
-          </span>
+           <div>Copyright &copy; {(new Date().getFullYear()-1)} - {(new Date().getFullYear())}  <a href="https://myce.world/">  Myce World</a></div>
+<div>Site design / Logo &copy; {(new Date().getFullYear()-1)} - {(new Date().getFullYear())}    <a href="https://myce.world/">  Myce World</a></div>          </span>
         </div>
         <div className="footer__block">
           <div className="footer__data-wrapper">

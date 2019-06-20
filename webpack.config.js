@@ -36,12 +36,6 @@ const prodPlugins = [
   new compressionPlugin({
     algorithm: 'gzip',
     asset: '[path].gz[query]'
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: { warnings: false },
-    comments: false,
-    sourceMap: true,
-    minimize: false
   })
 ];
 
@@ -53,10 +47,13 @@ module.exports = {
   devServer: {
     compress: true,
     contentBase: path.resolve('public'),
+disableHostCheck: true,
+    host:'localhost',
     hot: true,
     port: 8081,
-host:'0.0.0.0',	
-    publicPath: '/'
+    publicPath: '/',
+    sockHost:'explorer.myce.world',
+    sockPort: 443,
   },
   devtool: 'source-map',
   entry: ['babel-polyfill', './client/index.js'],
@@ -99,7 +96,8 @@ host:'0.0.0.0',
   output: {
     filename: 'bundle.js',
     path: path.resolve('public'),
-    publicPath: '/'
+    publicPath: '/',
+ globalObject: 'this'
   },
   plugins: envPlugins,
   resolve: {
