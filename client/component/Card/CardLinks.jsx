@@ -13,6 +13,8 @@ const CardLinks = () => (
     <a href="https://t.me/myceworld" target="_blank">Telegram</a><br />
     <a href="https://twitter.com/myceworld" target="_blank">Twitter</a><br />
     <a href="https://medium.com/myceworld" target="_blank">Medium</a><br/>
+    <a href="https://www.instagram.com/myce.world/" target="_blank">Instagram</a><br/>
+
   </Card>
 );
 

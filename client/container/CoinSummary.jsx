@@ -75,7 +75,7 @@ class CoinSummary extends Component {
               <div className="col-md-12 col-lg-6">
                 <CardMarket
                   btc={coin.btc}
-                  usd={coin.usd}
+                 usd={coin.usd}
                   xAxis={this.props.coins.map(c => c.createdAt)}
                   yAxis={this.props.coins.map(c => c.usd ? c.usd : 0.0)} />
               </div>

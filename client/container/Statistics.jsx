@@ -10,6 +10,7 @@ import React from 'react';
 import GraphLineFull from '../component/Graph/GraphLineFull';
 import HorizontalRule from '../component/HorizontalRule';
 import Notification from '../component/Notification';
+import fromExponential from 'from-exponential';
 
 class Statistics extends Component {
   static propTypes = {
@@ -152,8 +153,8 @@ class Statistics extends Component {
           <div className="row">
             <div className="col-md-12 col-lg-6">
               <h3>Myce Price USD</h3>
-              <h4>{ numeral(this.props.coin.usd).format('$0,0.00') } { day }</h4>
-              <h5>{ numeral(this.props.coin.btc).format('0.00000000') } BTC</h5>
+              <h4>${ fromExponential(this.props.coin.usd) } { day }</h4>
+              <h5>{ fromExponential(this.props.coin.btc) } BTC</h5>
               <div>
                 <GraphLineFull
                   color="#1991eb"

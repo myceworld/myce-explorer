@@ -71,6 +71,10 @@ class Footer extends Component {
               <a href="https://twitter.com/myceworld" target="_blank">
                 <Icon name="twitter" className="fab footer__social-media-icon" />
               </a>
+	      <a href="https://www.instagram.com/myce.world/" target="_blank">
+                <Icon name="instagram" className="fab footer__social-media-icon" />
+              </a>
+
             </div>
           </div>
         </div>
